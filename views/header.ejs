@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/css/style.css' />
+    <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script src="/js/jquery.cookie.js"></script>
+  </head>
+  <body>
+      <h1><%= title %></h1>
+      <ul>
+        <% navigation.forEach(function(navElem) { %>
+            <li><a href="/<%=: navElem | downcase %>"><%= navElem %></a></li>
+        <% }); %>
+    </ul>

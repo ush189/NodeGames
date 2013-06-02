@@ -1,0 +1,39 @@
+<% include header %>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/fe_tictactoe.js"></script>
+
+    <div class="game">
+        <h2>TicTacToe</h2>
+        <div class="tictactoe">
+            <% fields.forEach(function(field) { %>
+                <div id="<%= field.id %>" class="tictactoeField<%= field.extraClass %>"><!-- --></div>
+                <% if (field.clearBoth) { %>
+                    <div class="clearBoth"><!-- --></div>
+                <% } %>
+            <% }); %>
+        </div>
+        
+        <button name="newgame" type="button">New Game</button>
+    </div>
+    
+    <div id="players" class="players">
+        <h2>Players online</h2>
+        <ul>
+            <% players.forEach(function(player) { %>
+                <li><%= player %></li>
+            <% }); %>
+        </ul>
+
+        <h2>Chat</h2>
+        <form name="chatinput" method="get" action="">
+            <input type="text" name="message" />
+            <button type="button" name="chatsubmit">submit</button>
+        </form>
+        <div id="chat" class="chat">
+            <!-- -->
+        </div>
+    </div>
+    <div class="clearBoth"><!-- --></div>
+
+<% include footer %>
